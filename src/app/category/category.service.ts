@@ -16,9 +16,11 @@ export class CategoryService {
   }
   
   saveCategory(category: Category): Observable<Category> {
-        if (category.id != null) this.apiURL += '/'+category.id;
+    this.apiURL="http://localhost:8080/category";
 
-        return this.http.put<Category>(this.apiURL, category);
+    if (category.id != null) this.apiURL += '/'+category.id;
+
+    return this.http.put<Category>(this.apiURL, category);
   }
 
   deleteCategory(idCategory : number): Observable<any> {

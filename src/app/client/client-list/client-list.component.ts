@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
+import { Route, Router } from '@angular/router';
 import { DialogConfirmationComponent } from 'src/app/core/dialog-confirmation/dialog-confirmation.component';
 import { ClientEditComponent } from '../client-edit/client-edit.component';
 import { ClientService } from '../client.service';
@@ -17,6 +18,7 @@ export class ClientListComponent implements OnInit {
   displayedColumns: string[] = ['id', 'name', 'action'];
 
   constructor(
+    private router: Router,
     private clientService: ClientService,
     public dialog: MatDialog,
   ) { }
@@ -34,6 +36,7 @@ export class ClientListComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       this.ngOnInit();
+      this.router.navigate(['/clients']);
     });    
   }  
 

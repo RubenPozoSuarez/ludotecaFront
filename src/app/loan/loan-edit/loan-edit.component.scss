@@ -6,19 +6,14 @@
     form {
         display: flex;
         flex-direction: column;
-        margin-bottom:20px;
+        margin-bottom: 20px;
     }
 
     .buttons {
-      text-align: right;
+        text-align: right;
 
-      button {
-          margin-left: 10px;
-      }
+        button {
+            margin-left: 10px;
+        }
     }
-}
-
-.err{
-    color: red;
-    font-weight: bold;
 }

@@ -1,0 +1,62 @@
+.container {
+    margin: 20px;
+
+    .filters {
+        display: flex;
+
+        mat-form-field {
+            width: 300px;
+            margin-right: 20px;
+        }
+
+        .buttons {
+            flex: auto;
+            align-self: center;
+
+            button {
+                margin-left: 15px;
+            }
+        }
+    }
+
+    mat-table {
+        margin-top: 10px;
+        margin-bottom: 20px;
+
+        .mat-header-row {
+            background-color: #f5f5f5;
+
+            .mat-header-cell {
+                text-transform: uppercase;
+                font-weight: bold;
+                color: #838383;
+            }
+        }
+
+        .mat-column-id {
+            flex: 0 0 20%;
+            justify-content: center;
+        }
+
+        .mat-column-action {
+            flex: 0 0 10%;
+            justify-content: center;
+        }
+    }
+
+    .buttons {
+        text-align: right;
+    }
+}
+
+.btnClear {
+    width: 125px;
+    background-color: blue;
+    color: white
+}
+
+@media (prefers-color-scheme: light) {
+    .mat-form-field {
+        background: #66B2FF;
+    }
+}

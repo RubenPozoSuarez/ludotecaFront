@@ -17,9 +17,11 @@ export class ClientService {
   }
   
   saveClient(client : Client): Observable<Client> {
-        if (client.id != null) this.apiURL += '/'+ client.id;
+    this.apiURL = "http://localhost:8080/client";
+    
+    if (client.id != null) this.apiURL += '/'+ client.id;
 
-        return this.http.put<Client>(this.apiURL, client);
+    return this.http.put<Client>(this.apiURL, client);
   }
 
   deleteClient(idClient : number): Observable<any> {
