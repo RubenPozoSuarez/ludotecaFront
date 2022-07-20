@@ -22,6 +22,8 @@ export class AuthorService {
   }
 
   saveAuthor(author: Author): Observable<void> {
+    this.apiURL = "http://localhost:8080/author";
+    
     if (author.id != null) this.apiURL += '/' + author.id;
 
     return this.http.put<void>(this.apiURL, author);

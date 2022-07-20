@@ -17,6 +17,7 @@ export class LoanEditComponent implements OnInit {
   loan: Loan;
   games: Game[];
   clients: Client[];
+  msgError: string = null;
 
   constructor(
     public dialogRef: MatDialogRef<LoanEditComponent>,
@@ -39,8 +40,16 @@ export class LoanEditComponent implements OnInit {
   }
 
   onSave() {
+    if(this.loan.repaymentDate <= this.loan.startDate){
+      this.msgError = "La fecha de devolución no puede ser inferior o igual a la fecha inicial";
+      return;
+    }
+
     this.loanService.saveLoan(this.loan).subscribe(result =>  {
         this.dialogRef.close();
+    },
+    err => {
+      this.msgError = err.error.message;
     }); 
   }  
 

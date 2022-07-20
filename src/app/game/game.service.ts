@@ -19,6 +19,8 @@ export class GameService {
   }
 
   saveGame(game: Game): Observable<void> {
+    this.apiUrl = "http://localhost:8080/game";
+
     if (game.id != null) {
       this.apiUrl += '/' + game.id;
     }
