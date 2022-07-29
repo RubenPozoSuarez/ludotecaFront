@@ -62,6 +62,7 @@ export class LoanListComponent implements OnInit {
     this.gameService.getGames().subscribe(
       games => this.games = games
     );
+
   }
 
   loadPage(event?: PageEvent) {
@@ -89,6 +90,8 @@ export class LoanListComponent implements OnInit {
 
   onSearch(): void {
 
+    this.pageable.pageNumber = 0;
+    this.pageable.pageSize = 5;
     this.gameId = this.filterGame != null ? this.filterGame.id : null;
     this.clientId = this.filterClient != null ? this.filterClient.id : null;
     this.date = this.filterDate;
